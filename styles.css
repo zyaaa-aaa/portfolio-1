@@ -111,6 +111,7 @@ h1 {
 }
 
 /* Navbar */
+/* Base navbar styles */
 .navbar {
     background-color: #333;
     padding: 1rem 0;
@@ -122,14 +123,14 @@ h1 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Regular desktop view for the navbar */
 .navbar ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap; /* Ensure wrap on smaller screens */
+    gap: 2rem;
 }
 
 .navbar li {
@@ -138,7 +139,7 @@ h1 {
 
 .navbar a {
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: white;
     padding: 10px 15px;
     border-radius: 5px;
@@ -149,6 +150,70 @@ h1 {
     color: #FF6F61;
     transform: scale(1.1);
 }
+
+/* Hamburger Menu for mobile */
+.menu-toggle-checkbox {
+    display: none;
+}
+
+.menu-toggle-label {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.menu-toggle-label .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+}
+
+/* Responsive Navbar for smaller screens */
+@media (max-width: 768px) {
+    .navbar ul {
+        display: none; /* Hide the menu by default */
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        text-align: left;
+    }
+
+    .navbar ul li {
+        width: 100%;
+    }
+
+    .navbar a {
+        display: block;
+        padding: 1rem;
+        border-bottom: 1px solid #444;
+    }
+
+    .menu-toggle-label {
+        display: flex; /* Show the hamburger icon on mobile */
+        position: absolute;
+        top: 15px;
+        right: 20px;
+    }
+
+    /* Show the menu when the checkbox is checked */
+    .menu-toggle-checkbox:checked + .menu-toggle-label + ul {
+        display: flex; /* Show the menu in a column */
+    }
+}
+
+/* Additional styling for mobile to make it user-friendly */
+.navbar ul li a {
+    text-align: left;
+    padding-left: 20px;
+    font-size: 1rem;
+}
+
+
 
 /* About Section */
 .about-section {
